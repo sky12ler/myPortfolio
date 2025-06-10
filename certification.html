@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zi Wei's - Certifications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Certification-specific styles */
+    .certification-main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .certification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .certification-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+    
+    .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .certification-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .certification-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+    }
+    
+    .certification-title {
+      font-size: 1.2rem;
+      margin: 0;
+      color: var(--heading-color);
+    }
+    
+    .certification-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .certification-description {
+      margin-top: 1rem;
+      color: var(--text-color);
+    }
+    
+    .certification-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      background: var(--primary-light);
+      color: var(--primary-color);
+    }
+
+    .certification-reference {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.5rem;
+    }
+
+    .certification-reference a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .certification-reference a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Dark mode variables */
+    :root {
+      --card-bg: #ffffff;
+      --border-color: #e0e0e0;
+      --primary-color: #0066cc;
+      --primary-light: #f0f7ff;
+      --primary-dark: #0052a3;
+      --text-color: #333333;
+      --text-muted: #666666;
+      --heading-color: #002244;
+    }
+    
+    body.dark-mode {
+      --card-bg: #1e293b;
+      --border-color: #334155;
+      --primary-color: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.1);
+      --primary-dark: #2563eb;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --heading-color: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="nav-light" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Zi Wei's Portfolio</a>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <ul id="nav-links" class="nav-links" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certification.html" class="active">Certification</a></li>
+        <li><a href="extracoco.html">Extracurricular</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="dark-mode-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="certification-main">
+    <h1>My Certifications</h1>
+    <p class="subtitle">Professional certifications and achievements that validate my skills and knowledge</p>
+    
+    <div class="certification-grid">
+      <!-- AWS Certification -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fab fa-aws certification-icon"></i>
+          <h3 class="certification-title">AWS Academy Cloud Foundations</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> AWS Academy</span>
+          <span><i class="fas fa-calendar-alt"></i> 2025</span>
+        </div>
+        <p class="certification-description">
+          Certified AWS Academy Graduate with knowledge in core AWS services and cloud computing concepts.
+        </p>
+        <span class="certification-badge">Cloud Computing</span>
+        <div class="certification-reference">
+          <strong>Verification:</strong> <a href="https://www.credly.com/badges/1e082c1d-de77-4247-86ae-9e28b61538f3/public_url" target="_blank" rel="noopener noreferrer">AWS Academy Program</a>
+        </div>
+      </div>
+      
+      <!-- AI Certification -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fas fa-robot certification-icon"></i>
+          <h3 class="certification-title">AI Aware Badge</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> MyDiGiTAL & Intel</span>
+          <span><i class="fas fa-calendar-alt"></i> 2025</span>
+        </div>
+        <p class="certification-description">
+          Certification demonstrating foundational knowledge in artificial intelligence concepts and applications.
+        </p>
+        <span class="certification-badge">Artificial Intelligence</span>
+        <div class="certification-reference">
+          <strong>Verification:</strong>   <a href="img/HII ZI WEI_AI_AWARE_BADGE.png" onclick="openModal(event, 'AWS Academy Certificate')">
+            <i class="fas fa-file-image"></i> View Certificate
+          </a>
+        </div>
+      </div>
+      
+      <!-- AI Appreciate Badge -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fas fa-brain certification-icon"></i>
+          <h3 class="certification-title">AI Appreciate Badge</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> MyDigital & Intel</span>
+          <span><i class="fas fa-calendar-alt"></i> 2025</span>
+        </div>
+        <p class="certification-description">
+          Advanced certification in AI applications and implementations.
+        </p>
+        <span class="certification-badge">Advanced AI</span>
+        <div class="certification-reference">
+          <strong>Verification:</strong> <a href="img/HII ZI WEI_AI_APPRECIATE_BADGE.png" onclick="openModal(event, 'AWS Academy Certificate')">
+            <i class="fas fa-file-image"></i> View Certificate  </a>
+        </div>
+      </div>
+      
+      <!-- Data Science Certification -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fas fa-database certification-icon"></i>
+          <h3 class="certification-title">ASEAN Data Science Explorers</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> ASEAN Foundation</span>
+          <span><i class="fas fa-calendar-alt"></i> 2024</span>
+        </div>
+        <p class="certification-description">
+          Participation and certification in the ASEAN Data Science Explorers program.
+        </p>
+        <span class="certification-badge">Data Science</span>
+        <div class="certification-reference">
+          <strong>Verification:</strong> <a href="img/DSE.png" onclick="openModal(event, 'Data Science Explorer')">
+            <i class="fas fa-file-image"></i> View Certificate  </a>
+        </div>
+      </div>
+      
+      <!-- English Certification -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fas fa-language certification-icon"></i>
+          <h3 class="certification-title">MUET (Band 4.5)</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> Malaysian Examinations Council</span>
+          <span><i class="fas fa-calendar-alt"></i> 2025</span>
+        </div>
+        <p class="certification-description">
+          Malaysian University English Test certification demonstrating English language proficiency at the university level.
+        </p>
+        <span class="certification-badge">Language</span>
+        <div class="certification-reference">
+          <strong>Reference:</strong> <a href="https://www.mpm.edu.my/" target="_blank" rel="noopener noreferrer">Malaysian Examinations Council</a>
+        </div>
+      </div>
+      
+      <!-- Scholarship -->
+      <div class="certification-card">
+        <div class="certification-header">
+          <i class="fas fa-award certification-icon"></i>
+          <h3 class="certification-title">UTAR Top Achiever Scholarship</h3>
+        </div>
+        <div class="certification-meta">
+          <span><i class="fas fa-building"></i> UTAR</span>
+          <span><i class="fas fa-calendar-alt"></i> 2023 - Present</span>
+        </div>
+        <p class="certification-description">
+          Received 100% scholarship for academic excellence in Bachelor of Computer Science program.
+        </p>
+        <span class="certification-badge">Academic Excellence</span>
+        <div class="certification-reference">
+          <strong>Reference:</strong> <a href="https://www.utar.edu.my/" target="_blank" rel="noopener noreferrer">UTAR Scholarship Program</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Zi Wei's Portfolio. All rights reserved.</p>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>

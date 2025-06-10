@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zi Wei's - Extracurricular</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Reset for full-width slideshow */
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Full-page slideshow styles - now isolated */
+    .slideshow-wrapper {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow: hidden;
+    }
+
+    .slideshow-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .slide {
+        display: none;
+        width: 100%;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: cover;
+    }
+
+    /* Keep existing slideshow functionality */
+    .slide-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    /* Adjust navigation buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 20px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        transition: 0.6s ease;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .prev {
+        left: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* Dots container */
+    .dots-container {
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Restore main content styling */
+    .extracurricular-main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    /* Timeline styling */
+    .activity-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 3rem auto;
+        padding-left: 50px;
+    }
+
+    .activity-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 20px;
+        width: 2px;
+        background: var(--timeline-line);
+    }
+
+    .activity-item {
+        position: relative;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border-color);
+    }
+
+    .activity-item::before {
+        content: '';
+        position: absolute;
+        top: 24px;
+        left: -30px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid var(--card-bg);
+    }
+
+    .activity-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .activity-title {
+        font-size: 1.2rem;
+        margin: 0;
+        color: var(--heading-color);
+    }
+
+    .activity-date {
+        font-size: 0.9rem;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .activity-role {
+        font-style: italic;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .activity-description {
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+
+    .activity-highlights {
+        margin-left: 1rem;
+        color: var(--text-color);
+    }
+
+    .activity-highlights li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Dark mode variables */
+    :root {
+        --card-bg: #ffffff;
+        --border-color: #e0e0e0;
+        --primary-color: #0066cc;
+        --primary-light: #f0f7ff;
+        --primary-dark: #0052a3;
+        --text-color: #333333;
+        --text-muted: #666666;
+        --heading-color: #002244;
+        --timeline-line: #e0e0e0;
+    }
+
+    body.dark-mode {
+        --card-bg: #1e293b;
+        --border-color: #334155;
+        --primary-color: #3b82f6;
+        --primary-light: rgba(59, 130, 246, 0.1);
+        --primary-dark: #2563eb;
+        --text-color: #e2e8f0;
+        --text-muted: #94a3b8;
+        --heading-color: #f8fafc;
+        --timeline-line: #4a5568;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .slide img {
+            max-height: 50vh;
+        }
+        
+        .prev, .next {
+            padding: 12px;
+            font-size: 18px;
+        }
+        
+        .slide-caption {
+            font-size: 1em;
+            padding: 10px;
+        }
+
+        .activity-timeline {
+            padding-left: 30px;
+        }
+        
+        .activity-timeline::before {
+            left: 15px;
+        }
+        
+        .activity-item::before {
+            left: -25px;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .activity-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .activity-date {
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+
+
+
+
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav id="navbar" class="nav-light" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">Zi Wei's Portfolio</a>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <ul id="nav-links" class="nav-links" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certification.html">Certification</a></li>
+        <li><a href="extracoco.html" class="active">Extracurricular</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="dark-mode-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="extracurricular-main">
+    <h1>Extracurricular Activities</h1>
+    <p class="subtitle">Beyond academics - my leadership roles, competitions, and other activities</p>
+    
+    <!-- Slideshow Section -->
+<div class="slideshow-wrapper">
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="img/6210805589903262497.jpg" alt="MBOT Competition">
+            <div class="slide-caption">MBOT TOP CODER Competitive Programming</div>
+        </div>
+        
+        <div class="slide fade">
+            <img src="img/1732899522790.jpg" alt="MBOT Competition">
+            <div class="slide-caption">MBOT TOP CODER Competitive Programming</div>
+        </div>
+        
+        <div class="slide fade">
+            <img src="img/6163713962152148905.jpg" alt="Study Tour">
+            <div class="slide-caption">Study Tour UTM</div>
+        </div>
+        
+        <div class="slide fade">
+            <img src="img/6172667083473666584.jpg" alt="Study Tour">
+            <div class="slide-caption">Study Tour NUS</div>
+        </div>
+
+          <div class="slide fade">
+            <img src="img/deloitte.jpg" alt="Deloitte">
+            <div class="slide-caption">Deloitte Workshop and Recruitment Day</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+</div>
+
+<div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+    
+    <div class="activity-timeline">
+      <!-- Computer Society -->
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">Computer Society</h3>
+          <span class="activity-date">July 2024 - Present</span>
+        </div>
+        <p class="activity-role">Vice Chairman</p>
+        <p class="activity-description">
+          Leadership role in organizing tech events and workshops for students.
+        </p>
+        <ul class="activity-highlights">
+          <li>Organized Hackathon HackAttack 2.0</li>
+          <li>Coordinated Deloitte Recruitment and Coding Workshop</li>
+          <li>Managed Blockchain Workshop</li>
+          <li>Oversaw Enlight 5.0 (Company Visitation)</li>
+        </ul>
+      </div>
+      
+      <!-- MBOT Student Chapter -->
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">MBOT Student Chapter</h3>
+          <span class="activity-date">July 2024 - Present</span>
+        </div>
+        <p class="activity-role">Assistant Secretary</p>
+        <p class="activity-description">
+          Administrative and organizational role in the MBOT student chapter.
+        </p>
+        <ul class="activity-highlights">
+          <li>Organized Top Coder Competitive Programming</li>
+          <li>Coordinated Hands-on Training from MBOT</li>
+          <li>Managed Company Visitation programs</li>
+        </ul>
+      </div>
+      
+      <!-- Study Tour -->
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">Study Tour to NUS and UTM</h3>
+          <span class="activity-date">November 2024</span>
+        </div>
+        <p class="activity-role">Participant & Helper</p>
+        <p class="activity-description">
+          Educational visit to leading universities in Singapore and Malaysia.
+        </p>
+        <ul class="activity-highlights">
+          <li>Gained insights into AI, cybersecurity infrastructure, and data analytics</li>
+          <li>Helped organize logistics and schedule</li>
+          <li>Networked with students and faculty</li>
+        </ul>
+      </div>
+    
+
+
+    <!-- New Volunteering Section -->
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">New Village Survey to Kedah</h3>
+          <span class="activity-date">Jan 2024 · 1 mo</span>
+        </div>
+        <p class="activity-role">Research Interviewer</p>
+        <p class="activity-description">
+          Through conducting interviews with the village headman, secondary school president, and villagers in Mahang to compile a comprehensive report, as well as editing a video aimed at promoting the village.
+        </p>
+        <ul class="activity-highlights">
+          <li>Enhanced communication and interview design skills</li>
+          <li>Developed video editing and reporting capabilities</li>
+          <li>Gained deep cultural understanding of the village</li>
+        </ul>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">New Village Survey to Buntong</h3>
+          <span class="activity-date">Jan 2024 · 1 mo</span>
+        </div>
+        <p class="activity-role">Research Interviewer</p>
+        <p class="activity-description">
+          Independently established contact with the village headman, explored the area to identify key landmarks, conducted interviews, and produced both a comprehensive report and promotional video.
+        </p>
+        <ul class="activity-highlights">
+          <li>Demonstrated independent project management</li>
+          <li>Engaged with multiple stakeholders effectively</li>
+          <li>Created multimedia content to highlight the village</li>
+        </ul>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">STEM Learning at SJKC Choong Hua</h3>
+          <span class="activity-date">Apr 2024 · 1 mo</span>
+        </div>
+        <p class="activity-role">Student Volunteer</p>
+        <p class="activity-description">
+          Guided primary students as an event facilitator, interacting with teachers, organizers, and team members.
+        </p>
+        <ul class="activity-highlights">
+          <li>Enhanced leadership and communication skills</li>
+          <li>Developed ability to explain complex concepts simply</li>
+          <li>Worked effectively in a team environment</li>
+        </ul>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">STEM Learning at SJKC Bukit Pagar</h3>
+          <span class="activity-date">Apr 2024 · 1 mo</span>
+        </div>
+        <p class="activity-role">Student Volunteer</p>
+        <p class="activity-description">
+          Organized STEM games for primary students, led a team of 10 as a facilitator, and coordinated with various stakeholders.
+        </p>
+        <ul class="activity-highlights">
+          <li>Demonstrated event coordination skills</li>
+          <li>Fostered creativity in young students</li>
+          <li>Promoted STEM education effectively</li>
+        </ul>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-header">
+          <h3 class="activity-title">STEM Learning and Japanese Culture at Kedah</h3>
+          <span class="activity-date">Jan 2024 · 1 mo</span>
+        </div>
+        <p class="activity-role">Student Volunteer</p>
+        <p class="activity-description">
+          Combined STEM education with cultural exchange activities for primary students.
+        </p>
+        <ul class="activity-highlights">
+          <li>Bridged technology and cultural education</li>
+          <li>Created engaging learning experiences</li>
+          <li>Adapted content for different age groups</li>
+        </ul>
+      </div>
+    </div>
+  
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Zi Wei's Portfolio. All rights reserved.</p>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <script src="js/script.js"></script>
+  <script>
+    // Slideshow functionality
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(function() {
+      plusSlides(1);
+    }, 5000);
+  </script>
+</body>
+</html>

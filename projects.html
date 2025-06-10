@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zi Wei's Portfolio - Projects</title>
+<link rel="stylesheet" href="css/style.css" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav id="navbar" class="nav-light" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">Zi Wei's Portfolio</a>
+    <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+    <ul id="nav-links" class="nav-links" hidden>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="certification.html">Certification</a></li>
+      <li><a href="extracoco.html">Extracurricular</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button id="dark-mode-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="projects-main">
+  <header class="projects-header">
+    <h1>My Projects & Competitions</h1>
+    <p class="subtitle">Interactive showcase of my technical work and achievements</p>
+    
+    <!-- Filter Controls -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="competition">Competitions</button>
+      <button class="filter-btn" data-filter="cloud">Cloud/DevOps</button>
+      <button class="filter-btn" data-filter="software">Software Dev</button>
+      <button class="filter-btn" data-filter="data">Data/AI</button>
+    </div>
+  </header>
+
+  <!-- Projects Grid -->
+  <div class="projects-grid">
+    <!-- hackattack-->
+    <article class="project-card competition" data-category="competition" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge competition-badge">
+          <i class="fas fa-trophy"></i> Competition
+        </div>
+        <h2>Virtual Tour Guide (HackAttack)</h2>
+        <div class="tech-tags">
+          <span class="tech-tag react">React JS</span>
+          <span class="tech-tag html">HTML</span>
+          <span class="tech-tag css">CSS</span>
+          <span class="tech-tag web">Web developing</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>A location-based travel website with LLM-powered translation and personalised nearby attraction suggestions within a 1km radius</p>
+        <div class="project-stats">
+          <div class="stat">
+            <i class="fas fa-clock"></i>
+            <span>24-hour competition</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-code"></i>
+            <span>Placed 11th</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="HA-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="HA-details" hidden>
+          <h3>Project Details</h3>
+          <ul>
+            <li>An online text-to-text translator to bridge language gaps
+Integration of a map API</li>
+<li>A language learning machine that recommends attractions within 1km of the user's location</li>
+            <li>Solved problems involving language barrier and personalised tourist plan</li>
+            <li>Led frontend development using React.js and Figma for seamless user experience.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/sky12ler/hackattack-cache" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+
+    <!-- ihax-->
+    <article class="project-card competition" data-category="competition" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge competition-badge">
+          <i class="fas fa-trophy"></i> Competition
+        </div>
+        <h2>Motherly (IHax 24 Hour Hackathon)</h2>
+        <div class="tech-tags">
+          <span class="tech-tag figma">Figma</span>
+        
+        </div>
+      </div>
+      <div class="card-body">
+        <p>A mobile app providing personalised healthcare, financial
+planning, and educational resources for pregnant women, addressing financial constraints and care accessibility</p>
+        <div class="project-stats">
+          <div class="stat">
+            <i class="fas fa-clock"></i>
+            <span>24-hour competition</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-code"></i>
+            <span>Best Pitch Award</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="motherly-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="motherly-details" hidden>
+          <h3>Project Details</h3>
+          <ul>
+          
+            <li> Through extensive research, we identified a significant challenge faced by pregnant women: financial constraints, knowledge gaps, and lack of proper care, which also affects their infants' well-being.</li>
+            <li>Motherly, provides personalized planning for mothers, including healthcare, financial guidance, and educational resources
+Offers a financial preview to potential mothers, enabling them to plan for future pregnancies. This feature helps reduce abortion rates and promotes informed decisions, aiming to increase birth rates.</li>
+<li>Winning the Best Pitching Award was an incredible recognition of our hard work, creativity, and the impact we aim to create through AI, machine learning, and predictive analysis.</li>
+
+          </ul>
+          <div class="project-links">
+            <a href=https://www.linkedin.com/posts/zi-wei-hii-b651532b0_hackathon-ihax-iium-activity-7263287136479576065-XL29?utm_source=share&utm_medium=member_desktop&rcm=ACoAAErFu70BguhCGW4Tb9Q2DS0s5DC1Imf1HHE" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SNS -->
+    <article class="project-card" data-category="software" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge workshop-badge">
+          <i class="fas fa-chalkboard-teacher"></i> CourseWork
+        </div>
+        <h2>Java Stock Management System (SNS)</h2>
+        <div class="tech-tags">
+          <span class="tech-tag java">Java</span>
+          <span class="tech-tag java">JavaFX</span>
+          <span class="tech-tag GUI">GUI</span>
+          <span class="tech-tag datastructures">Data Structures</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Skills: Java, JavaFX, JDBC, MS Access, OOP, GUI Design, Exception Handling, Database Integration</p>
+      
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="SNS-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="SNS-details" hidden>
+          <h3>Project Highlights</h3>
+          <ul>
+            <li>Developed a GUI-based inventory system for electronic products using JavaFX, with dynamic forms for
+login, stock control, and product management.</li>
+            <li>Engineered UCANAccess JDBC integration for syncing data with MS Access (.accdb), supporting CRUD
+operations, table creation, and logging inventory actions with timestamps.</li>
+            <li>Applied OOP principles with abstract classes, inheritance, encapsulation of product logic, and role-based
+user access across both GUI and CLI interfaces.</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/sky12ler/GUI-SMS" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+      <!-- PDBMS -->
+    <article class="project-card" data-category="data" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge workshop-badge">
+          <i class="fas fa-chalkboard-teacher"></i> CourseWork
+        </div>
+        <h2>Promotion DBMS</h2>
+        <div class="tech-tags">
+          <span class="tech-tag sql">SQL</span>
+          
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Skills: Oracle SQL, PL/SQL, ER/EER Modelling, Triggers, Stored Procedures, User Privileges, Business Rule</p>
+       
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="DBMS-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="DBMS-details" hidden>
+          <h3>Project Highlights</h3>
+          <ul>
+            <li>Developed a comprehensive Oracle-based DBMS for managing fast-food promotions, customer loyalty, and
+tiered memberships.</li>
+            <li>Enabled automated membership handling (tier upgrades, point expiry, birthday rewards), set meal and à la
+carte order processing, voucher distribution/redemption, and seasonal promotions via PL/SQL procedures,
+triggers, and role-based access controls</li>
+            
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/sky12ler/Promotion-DBMS" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Giftos E-commerce Platform -->
+    <article class="project-card cloud" data-category="cloud" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge cloud-badge">
+          <i class="fas fa-cloud"></i> AWS Project
+        </div>
+        <h2>Giftos E-commerce Platform</h2>
+        <div class="tech-tags">
+          <span class="tech-tag aws">AWS</span>
+          <span class="tech-tag ec2">EC2</span>
+          <span class="tech-tag s3">S3</span>
+          <span class="tech-tag lambda">Lambda</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Cloud architecture for an e-commerce platform with automated scaling and security features.</p>
+        <div class="project-stats">
+          <div class="stat">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>60% faster load times</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>40% cost reduction</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="giftos-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="giftos-details" hidden>
+          <h3>Key Achievements</h3>
+          <ul>
+            <li>Deployed EC2-based dynamic site with S3-hosted static assets</li>
+            <li>Implemented CloudFront CDN for global content delivery</li>
+            <li>Automated scaling with ALB + Auto Scaling</li>
+            <li>Reduced EC2 cost 40% via Lambda APIs</li>
+            <li>Blocked 100+ bot attacks/day with WAF & Shield</li>
+            <li>Cut S3 storage cost 70% with Intelligent-Tiering/Glacier</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/sky12ler/-AWS-Project-Giftos-E-commerce-Platform" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SignifyAI -->
+    <article class="project-card data" data-category="data competition", tabindex="0">
+      <div class="card-header">
+        <div class="card-badge competition-badge">
+          <i class="fas fa-trophy"></i> Tech4Good Finalist
+        </div>
+        <h2>SignifyAI (Tech4Good)</h2>
+        <div class="tech-tags">
+          <span class="tech-tag python">Python</span>
+          <span class="tech-tag ai">AI</span>
+          <span class="tech-tag tkinter">Tkinter</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>AI-Powered Real-time Distress Detection System for deaf patients using sign language recognition.</p>
+        <div class="project-stats">
+          <div class="stat">
+            <i class="fas fa-percentage"></i>
+            <span>85% accuracy</span>
+          </div>
+          <div class="stat">
+            <i class="fas fa-stopwatch"></i>
+            <span>&lt; 2s latency</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="signifyai-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="signifyai-details" hidden>
+          <h3>Project Highlights</h3>
+          <ul>
+            <li>Real-time sign language recognition (20 BIM gestures)</li>
+            <li>Speech-to-text and facial emotion detection (FER2013)</li>
+            <li>Edge-computing architecture for low-latency processing</li>
+            <li>Optimized for rural clinics under RM500 hardware budget</li>
+            <li>Multilingual UI with Python (Tkinter)</li>
+            <li>High-contrast accessibility features</li>
+          </ul>
+          <div class="project-links">
+            <a href="#" class="project-link">
+              <i class="fas fa-link"></i> Prototype (Coming Soon)
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Automated Leave-->
+    <article class="project-card data" data-category="competition" tabindex="0">
+      <div class="card-header">
+        <div class="card-badge competition-badge">
+          <i class="fas fa-trophy"></i> Competition
+        </div>
+        <h2>Automated Leave Application (Google Hackathon)</h2>
+        <div class="tech-tags">
+          <span class="tech-tag javascript">JavaScript</span>
+          <span class="tech-tag GoogleScript">Google Script</span>
+          
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Tools: JavaScript, Google Apps Script, AppSheet</p>
+       
+      </div>
+      <div class="card-footer">
+        <button class="expand-btn" aria-expanded="false" aria-controls="automated-details">
+          <span class="btn-text">View Details</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="project-details" id="automated-details" hidden>
+          <h3>Project Highlights</h3>
+          <ul>
+           
+            <li>Designed and developed an automated leave management system to reduce manual errors and streamline
+approvals, with email alerts and real-time updates via Google Calendar API</li>
+            <li>Built a user-friendly app using Google Apps Script and AppSheet, enabling employees to check leave
+balances and view analytics.</li>
+            <li>Led frontend and backend development and project pitching for the Google Workplace Hackathon (APU)</li>
+            
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/sky12ler/LeaveApplicationSystem" target="_blank" rel="noopener" class="project-link">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+ 
+
+
+  </div>
+  <p>&copy; 2025 Zi Wei's Portfolio. All rights reserved.</p>
+</main>
+
+
+
+
+<button id="back-to-top" aria-label="Back to top" class="back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="js/script.js"></script>
+
+
+</body>
+</html>

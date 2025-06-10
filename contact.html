@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zi Wei's - Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Additional contact-specific styles */
+    .contact-main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .contact-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 200px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border: 1px solid var(--border-color);
+    }
+    
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    
+    .contact-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .contact-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    
+    .contact-card a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: var(--primary-light);
+      transition: all 0.2s ease;
+    }
+    
+    .contact-card a:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .contact-form {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-top: 3rem;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.547);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 0.5px solid var(--border-color black);
+      border-radius: 6px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: var(--primary-color);
+      color: rgb(20, 1, 1);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+    }
+    
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .success-message {
+      display: none;
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav id="navbar" class="nav-light" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">Zi Wei's Portfolio</a>
+    <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+    <ul id="nav-links" class="nav-links" hidden>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certification.html">Certification</a></li>
+      <li><a href="extracoco.html">Extracurricular</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><button id="dark-mode-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="contact-main">
+  <h1>Get In Touch</h1>
+  <p class="subtitle">I'm always open to discussing new opportunities, collaborations, or just chatting about tech!</p>
+  
+  <div class="contact-platforms">
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h3>Email</h3>
+      <p>Direct and reliable</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=cziwei0112@gmail.com">Send Message</a>
+    </div>
+    
+    <div class="contact-card">
+      <i class="fab fa-github"></i>
+      <h3>GitHub</h3>
+      <p>My code projects</p>
+      <a href="https://github.com/sky12ler" target="_blank" rel="noopener">View Profile</a>
+    </div>
+    
+    <div class="contact-card">
+      <i class="fab fa-linkedin"></i>
+      <h3>LinkedIn</h3>
+      <p>Professional network</p>
+      <a href="https://www.linkedin.com/in/zi-wei-hii-b651532b0/" target="_blank" rel="noopener">Connect</a>
+    </div>
+
+   <div class="contact-card">
+  <i class="fas fa-phone-alt"></i> <!-- Better phone icon -->
+  <h3>Phone</h3>
+  <p>Direct call or WhatsApp</p>
+  <a href="tel:+60183284691">+60 18-328 4691</a> <!-- Makes it clickable on mobile -->
+</div>
+  </div>
+  
+  <!-- Contact Form Section -->
+<div class="contact-form">
+  <h2>Send Me a Message</h2>
+  <form action="https://formspree.io/f/cziwei0112@gmail.com" method="POST">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="_replyto" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    
+    <input type="hidden" name="_subject" value="New contact from portfolio">
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+<!-- Footer with Contact Information -->
+<footer>
+</br>
+    <h>Thank You.</h>
+    <p>&copy; 2025 Zi Wei's Portfolio. All rights reserved.</p>   
+</br>
+</footer>
+</main>
+
+<script>
+  // Form submission handling
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Here you would typically send the form data to a server
+    // For demo purposes, we'll just show the success message
+    document.getElementById('successMessage').style.display = 'block';
+    this.reset();
+    
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      document.getElementById('successMessage').style.display = 'none';
+    }, 5000);
+  });
+  
+  // Add animation to contact cards when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.contact-card').forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease-out';
+    observer.observe(card);
+  });
+</script>
+
+<button id="back-to-top" aria-label="Back to top" class="back-to-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<script src="js/script.js"></script>
+</body>
+</html>
