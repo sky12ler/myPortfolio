@@ -111,6 +111,7 @@ button {
   font-family: inherit;
 }
 
+/* Hero Section */
 .hero-section {
   position: relative;
   height: 100vh;
@@ -124,7 +125,35 @@ button {
   color: white;
   overflow: hidden;
   transition: background 0.5s ease;
-  z-index: 2; /* Above the animated background */
+  /* Improved background properties */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    background-attachment: scroll; /* Disable parallax on mobile */
+    background-size: cover;
+    background-position: 65% center;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 100vh;
+    background-position: 70% center;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 120vh;
+  }
 }
 
 .hero-scroll {
