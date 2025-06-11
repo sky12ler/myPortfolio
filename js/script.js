@@ -568,4 +568,89 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Create interactive background bubbles
+  document.addEventListener('DOMContentLoaded', function() {
+    const bubblesContainer = document.getElementById('bubbles-container');
+    const heroSection = document.getElementById('hero-section');
+    
+    // Create bubbles
+    for (let i = 0; i < 15; i++) {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      
+      // Random size between 20px and 100px
+      const size = Math.random() * 80 + 20;
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      
+      // Random position
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.top = `${Math.random() * 100}%`;
+      
+      // Random animation duration and delay
+      bubble.style.animationDuration = `${Math.random() * 20 + 10}s`;
+      bubble.style.animationDelay = `${Math.random() * 5}s`;
+      
+      bubblesContainer.appendChild(bubble);
+    }
+    
+    // Make bubbles interactive
+    bubblesContainer.addEventListener('mousemove', (e) => {
+      const bubbles = document.querySelectorAll('.bubble');
+      bubbles.forEach(bubble => {
+        const rect = bubble.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const distance = Math.sqrt(x * x + y * y);
+        
+        if (distance < 100) {
+          bubble.style.transform = `translate(${x/10}px, ${y/10}px)`;
+        }
+      });
+    });
+    
+    // Collapse hero section on scroll
+    const scrollPrompt = document.getElementById('scroll-prompt');
+    scrollPrompt.addEventListener('click', () => {
+      window.scrollTo({
+        top: heroSection.offsetHeight - 80,
+        behavior: 'smooth'
+      });
+    });
+    
+    let lastScrollPosition = 0;
+    window.addEventListener('scroll', () => {
+      const currentScrollPosition = window.pageYOffset;
+      
+      if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+        // Scrolling down
+        heroSection.classList.add('collapsed');
+      } else if (currentScrollPosition < lastScrollPosition && currentScrollPosition < 50) {
+        // Scrolling up near top
+        heroSection.classList.remove('collapsed');
+      }
+      
+      lastScrollPosition = currentScrollPosition;
+    });
+    
+    // Faster Role Changer
+    const roles = ["AI & Machine Learning", "Data Analyst", "Web Developer", "Cloud Engineer"];
+    const roleElement = document.querySelector('.current-role');
+    let currentRole = 0;
+    
+    function changeRole() {
+      currentRole = (currentRole + 1) % roles.length;
+      roleElement.style.opacity = 0;
+      
+      setTimeout(() => {
+        roleElement.textContent = roles[currentRole];
+        roleElement.style.opacity = 1;
+      }, 300);
+    }
+    
+    setInterval(changeRole, 2000);
+  });
+
+  
+
 

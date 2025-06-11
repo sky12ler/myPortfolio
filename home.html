@@ -7,74 +7,397 @@
   <link rel="stylesheet" href="css/style.css" />
 <style>
   
-  /* Hero Section */
-.hero-section {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-              url('img/profilebackground2.png') no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-  transition: background 0.5s ease;
-  /* Improved background properties */
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
+  /* Import a nice font for typewriter effect */
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+  
+  /* Hero Section - Interactive Version */
   .hero-section {
-    min-height: 100vh;
-    background-attachment: scroll; /* Disable parallax on mobile */
-    background-size: cover;
-    background-position: 65% center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    background: linear-gradient(135deg, #0066cc, #004080);
+    transition: height 0.5s ease;
   }
-}
 
-/* For very small screens */
-@media (max-width: 480px) {
-  .hero-section {
-    min-height: 100vh;
-    background-position: 70% center;
+  .hero-content {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    padding: 2rem;
+    gap: 3rem;
   }
-}
 
-/* Landscape orientation adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-  .hero-section {
-    min-height: 120vh;
+  /* Profile Image Container - Left Side (50% width) */
+  .profile-container {
+    position: relative;
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
 
-  /* Hero Scroll Indicator */
-  .hero-scroll {
+  .profile-image-wrapper {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .image-pulse {
     position: absolute;
-    bottom: 30px;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: pulse 3s infinite ease-out;
+    opacity: 0;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    70% { transform: scale(1.2); opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .profile-image-wrapper:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .profile-image-wrapper:hover .profile-image {
+    transform: scale(1.1);
+  }
+
+  .profile-image-wrapper:hover .image-pulse {
+    animation: pulse 1.5s infinite ease-out;
+  }
+
+  /* Hero Text Content - Right Side */
+  .hero-text {
+    text-align: left;
+    max-width: 600px;
+    flex: 1;
+  }
+
+  /* Typewriter Effect with Space Mono font */
+  .intro-line {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    opacity: 0;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    animation: 
+      fadeInUp 1s ease 0.3s forwards,
+      typing 3.5s steps(40, end) 0.3s forwards,
+      blink-caret .75s step-end infinite;
+  }
+
+  .name {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    opacity: 0;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+    animation: 
+      fadeInUp 1s ease 0.5s forwards,
+      typing 3.5s steps(40, end) 0.5s forwards,
+      blink-caret .75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
+
+  /* Interactive Role Changer - Faster Animation */
+  .role-changer {
+    min-height: 60px;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .current-role {
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    display: inline-block;
+    position: relative;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .current-role::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .role-changer:hover .current-role::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Animated Skills Cloud */
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 2rem 0;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+  }
+
+  .skill-tag {
+    padding: 0.5rem 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+    animation: float 3s ease-in-out infinite;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .skill-tag:nth-child(1) { animation-delay: 0.1s; }
+  .skill-tag:nth-child(2) { animation-delay: 0.2s; }
+  .skill-tag:nth-child(3) { animation-delay: 0.3s; }
+  .skill-tag:nth-child(4) { animation-delay: 0.4s; }
+  .skill-tag:nth-child(5) { animation-delay: 0.5s; }
+  .skill-tag:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(0.9); }
+    50% { transform: translateY(-5px) scale(1); }
+  }
+
+  .skill-tag:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05) !important;
+    animation: none !important;
+  }
+
+  /* Interactive Scroll Prompt */
+  .scroll-prompt {
+    position: absolute;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
-    font-size: 1.2rem;
-    animation: bounce 2s infinite;
-    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+    cursor: pointer;
   }
 
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-    40% { transform: translateY(-20px) translateX(-50%); }
-    60% { transform: translateY(-10px) translateX(-50%); }
+  .mouse-scroll {
+    width: 25px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 10px;
   }
 
-  /* Dark Mode Adjustments */
-  body.dark-mode .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
-                url('img/profilebackground2.png') no-repeat center center/cover !important;
+  .mouse-scroll::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 4px;
+    height: 8px;
+    background: white;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
   }
+
+  .scroll-text {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .scroll-prompt:hover .scroll-text {
+    transform: translateY(5px);
+  }
+
+  @keyframes scrollWheel {
+    0% { top: 5px; opacity: 1; }
+    50% { top: 15px; opacity: 0.5; }
+    100% { top: 5px; opacity: 1; }
+  }
+
+  /* Interactive Background Bubbles */
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: floatBubble 15s infinite linear;
+    z-index: 1;
+  }
+
+  @keyframes floatBubble {
+    0% { 
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.5;
+    }
+    25% { 
+      transform: translate(50px, -50px) rotate(90deg);
+      opacity: 0.7;
+    }
+    50% { 
+      transform: translate(100px, 0) rotate(180deg);
+      opacity: 0.5;
+    }
+    75% { 
+      transform: translate(50px, 50px) rotate(270deg);
+      opacity: 0.3;
+    }
+    100% { 
+      transform: translate(0, 0) rotate(360deg);
+      opacity: 0.5;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .profile-image-wrapper {
+      width: 350px;
+      height: 350px;
+    }
+    
+    .name {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    
+    .profile-container {
+      flex: 0 0 auto;
+    }
+    
+    .profile-image-wrapper {
+      width: 250px;
+      height: 250px;
+    }
+    
+    .hero-text {
+      text-align: center;
+    }
+    
+    .name {
+      font-size: 2.8rem;
+    }
+    
+    .current-role {
+      font-size: 1.5rem;
+    }
+    
+    .skill-tag {
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+    }
+    
+    /* Adjust typewriter effect for mobile */
+    .intro-line, .name {
+      white-space: normal;
+      border-right: none;
+      animation: 
+        fadeInUp 1s ease forwards,
+        none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile-image-wrapper {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .intro-line {
+      font-size: 1.2rem;
+    }
+    
+    .name {
+      font-size: 2.2rem;
+    }
+    
+    .current-role {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Collapsed hero section class */
+  .hero-section.collapsed {
+    height: 80px;
+    overflow: hidden;
+  }
+
+
+
+
+
+
+
 
     /* Footer Styles */
   footer {
@@ -141,14 +464,49 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-scroll">
-    <span>Scroll Down</span>
-    <br>
-    <span>↓</span>
+<!-- Hero Section with Interactive Elements -->
+<section class="hero-section" id="hero-section">
+  <div class="hero-content">
+    <!-- Large Profile Image - Left Side (50% width) -->
+    <div class="profile-container">
+      <div class="profile-image-wrapper">
+        <img src="img/profile.png" alt="Hii Zi Wei" class="profile-image">
+        <div class="image-pulse"></div>
+      </div>
+    </div>
+    
+    <!-- Animated Text Content - Right Side -->
+    <div class="hero-text">
+      <p class="intro-line">Hello, I'm</p>
+      <h1 class="name">HII ZI WEI</h1>
+      
+      <!-- Interactive Role Changer -->
+      <div class="role-changer">
+        <span class="current-role">AI & Machine Learning</span>
+      </div>
+      
+      <!-- Animated Skills Cloud -->
+      <div class="skills-cloud">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Data Analysis</span>
+      </div>
+    </div>
   </div>
+  
+  <!-- Interactive Scroll Prompt -->
+  <div class="scroll-prompt" id="scroll-prompt">
+    <div class="mouse-scroll"></div>
+    <span class="scroll-text">Scroll Down</span>
+  </div>
+  
+  <!-- Interactive Background Bubbles -->
+  <div id="bubbles-container"></div>
 </section>
+
 
 <!-- Role Buttons Section -->
 <section class="role-buttons-section">
