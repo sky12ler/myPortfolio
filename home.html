@@ -23,6 +23,7 @@
     color: white;
     background: linear-gradient(135deg, #0066cc, #004080);
     transition: height 0.5s ease;
+    padding-bottom: 3rem;
   }
 
   .hero-content {
@@ -550,16 +551,31 @@
   <div id="bubbles-container"></div>
 </section>
 
-
 <!-- Role Buttons Section -->
-<section class="role-buttons-section">
-  <div class="intern-role-buttons">
-    <button class="role-btn">Data/Business Analysis</button>
-    <button class="role-btn">AI & Machine Learning</button>
-    <button class="role-btn">DevOps & Cloud</button>
-    <button class="role-btn">Web/Software Dev</button>
+<div class="intern-role-buttons">
+  <button class="role-btn" data-role-key="data-business">Data/Business Analysis</button>
+  <button class="role-btn" data-role-key="ai-machine">AI & Machine Learning</button>
+  <button class="role-btn" data-role-key="devops-cloud">DevOps & Cloud</button>
+  <button class="role-btn" data-role-key="web-software">Web/Software Dev</button>
+</div>
+
+<!-- Role Popup Modal -->
+<div id="role-modal" class="role-modal">
+  <div class="role-modal-content">
+    <button class="role-modal-close" aria-label="Close modal">&times;</button>
+    <h3 class="role-modal-title" id="modal-role-title">Role Title</h3>
+    <p class="role-modal-description" id="modal-role-description">Role description will appear here.</p>
+    <div class="role-modal-skills">
+      <h4>Key Skills:</h4>
+      <div id="modal-role-skills"></div>
+    </div>
+    <div class="role-modal-projects">
+      <h4>Relevant Projects:</h4>
+      <div id="modal-role-projects"></div>
+    </div>
   </div>
-</section>
+</div>
+
 
 <!-- Main Dashboard -->
 <main id="dashboard" class="dashboard">
@@ -770,20 +786,20 @@
         <span class="tech-level">Intermediate</span>
       </div>
       <div class="tech-item">
-        <span class="tech-name">S3</span>
+        <span class="tech-name">Auto Scaling & ELB</span>
         <span class="tech-level">Intermediate</span>
       </div>
       <div class="tech-item">
-        <span class="tech-name">Lambda</span>
-        <span class="tech-level">Basic</span>
+        <span class="tech-name">CloudFront & Lambda</span>
+        <span class="tech-level">Intermediate</span>
       </div>
     </div>
 
     <!-- Data Analytics (Hidden) -->
     <div class="tech-category" data-category="data">
       <div class="tech-item">
-        <span class="tech-name">Pandas</span>
-        <span class="tech-level">Intermediate</span>
+        <span class="tech-name">Scikit-learn</span>
+        <span class="tech-level">Basic</span>
       </div>
       <div class="tech-item">
         <span class="tech-name">Power BI</span>
@@ -1001,7 +1017,12 @@
       },
       "retina_detect": true
     });
+
+
+    
    });
+
+   
 </script>
 </body>
 </html>

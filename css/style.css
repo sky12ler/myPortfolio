@@ -114,6 +114,8 @@ button {
 
 /* Role Buttons Section */
 .role-buttons-section {
+  margin-top: 4rem; 
+  margin-bottom: 3rem;
   padding: 2rem 0;
   text-align: center;
 }
@@ -123,11 +125,11 @@ button {
   justify-content: center;
   gap: 1.5rem;
   padding: 1rem;
-  background: #000000; /* Black in light mode */
+  background: #000000; 
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 800px;
-  margin: 0 auto;
+  margin: 3rem auto 3rem;;
   transition: background-color 0.5s ease;
 }
 
@@ -165,6 +167,112 @@ body.dark-mode .role-btn:hover,
 body.dark-mode .role-btn:focus {
   background-color: #ff6b00;
 }
+
+
+/* Role Popup Modal */
+.role-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.role-modal-content {
+  background: linear-gradient(135deg, #0066cc, #004080);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  color: white;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.5s ease;
+}
+
+.role-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.role-modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.role-modal-description {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Update the modal skills styling */
+.role-modal-skills {
+  margin-bottom: 1.5rem;
+}
+
+.role-modal-skills h4 {
+  margin-bottom: 1rem;
+}
+
+#modal-role-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+#modal-role-skills .skill-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.role-modal-projects h4 {
+  margin-bottom: 0.8rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.role-modal-project-link {
+  display: inline-block;
+  margin: 0.5rem 0.5rem 0 0;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.role-modal-project-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .role-modal-content {
+    padding: 1.5rem;
+  }
+  
+  .role-modal-title {
+    font-size: 1.5rem;
+  }
+}
+
+
 
 /* Dashboard */
 .dashboard {

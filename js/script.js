@@ -97,6 +97,116 @@ backToTopBtn.addEventListener('click', () => {
 });
 
 
+//role button
+// Get modal elements
+  const roleModal = document.getElementById('role-modal');
+  const modalTitle = document.getElementById('modal-role-title');
+  const modalDescription = document.getElementById('modal-role-description');
+  const modalSkills = document.getElementById('modal-role-skills');
+  const modalProjects = document.getElementById('modal-role-projects');
+  const closeModal = document.querySelector('.role-modal-close');
+
+  // Role data (make sure this is defined)
+  const roleData = {
+    "data-business": {
+      title: "Data/Business Analysis",
+      description: "I specialize in transforming raw data into actionable insights. My analytical skills help businesses make data-driven decisions through comprehensive analysis, visualization, and reporting.",
+      skills: ["Python", "Pandas", "SQL", "Excel", "Power BI", "Data Visualization"],
+      projects: [
+        { name: "Promotion DBMS", url: "projects.html#DBMS-details" },
+        { name: "Automated Leave System", url: "projects.html#automated-details" }
+      ]
+    },
+    "ai-machine": {
+      title: "AI & Machine Learning",
+      description: "Passionate about building intelligent systems, I develop machine learning models and AI solutions that solve real-world problems, from computer vision to natural language processing.",
+      skills: ["Python", "TensorFlow", "OpenCV", "NLP", "Scikit-learn", "Data Preprocessing"],
+      projects: [
+        { name: "SignifyAI", url: "projects.html#signifyai-details" },
+        { name: "Virtual Tour Guide", url: "projects.html#HA-details" }
+      ]
+    },
+    "devops-cloud": {
+      title: "DevOps & Cloud",
+      description: "I architect and deploy scalable cloud solutions with a focus on automation, CI/CD pipelines, and infrastructure as code to ensure reliable and efficient deployments.",
+      skills: ["AWS", "EC2", "S3", "Lambda", "CloudFormation", "CI/CD"],
+      projects: [
+        { name: "Giftos E-commerce", url: "projects.html#giftos-details" }
+      ]
+    },
+    "web-software": {
+      title: "Web/Software Development",
+      description: "Building responsive, user-friendly applications is my forte. I follow best practices in software engineering to create maintainable and efficient code across the stack.",
+      skills: ["JavaScript", "React", "Java", "HTML/CSS", "REST APIs", "Git"],
+      projects: [
+        { name: "Stock Management System", url: "projects.html#SNS-details" },
+        { name: "Virtual Tour Guide", url: "projects.html#HA-details" },
+        { name: "Motherly App", url: "projects.html#motherly-details" }
+      ]
+    }
+  };
+
+  // Function to open modal with role data
+  function openRoleModal(roleKey) {
+    console.log('Opening modal for:', roleKey); // Debugging
+    const role = roleData[roleKey];
+    
+    if (!role) {
+      console.error('Role data not found for key:', roleKey);
+      return;
+    }
+    
+    // Populate modal content
+    modalTitle.textContent = role.title;
+    modalDescription.textContent = role.description;
+    
+    // Add skills
+    modalSkills.innerHTML = role.skills.map(skill => 
+      `<span class="skill-tag">${skill}</span>`
+    ).join('');
+    
+    // Add projects
+    modalProjects.innerHTML = role.projects.map(project => 
+      `<a href="${project.url}" class="role-modal-project-link">${project.name}</a>`
+    ).join('');
+    
+    // Show modal
+    roleModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Function to close modal
+  function closeRoleModal() {
+    roleModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  
+
+  // Close modal when clicking X or outside
+  closeModal.addEventListener('click', closeRoleModal);
+  roleModal.addEventListener('click', function(e) {
+    if (e.target === roleModal) {
+      closeRoleModal();
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && roleModal.style.display === 'flex') {
+      closeRoleModal();
+    }
+  });
+
+  
+// Add this near the other event listeners in your DOMContentLoaded handler
+document.querySelectorAll('.role-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const roleKey = btn.getAttribute('data-role-key');
+    openRoleModal(roleKey);
+  });
+});
+
 // Timeline functionality
   const timelineItems = document.querySelectorAll('.timeline-item');
   const timelineContents = document.querySelectorAll('.timeline-content');
@@ -652,5 +762,3 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   
-
-
