@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Create interactive background bubbles
+// Hero Section- Create interactive background bubbles
   document.addEventListener('DOMContentLoaded', function() {
     const bubblesContainer = document.getElementById('bubbles-container');
     const heroSection = document.getElementById('hero-section');
