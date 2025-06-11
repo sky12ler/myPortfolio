@@ -129,7 +129,7 @@ backToTopBtn.addEventListener('click', () => {
     "devops-cloud": {
       title: "DevOps & Cloud",
       description: "I architect and deploy scalable cloud solutions with a focus on automation, CI/CD pipelines, and infrastructure as code to ensure reliable and efficient deployments.",
-      skills: ["AWS", "EC2", "S3", "Lambda", "CloudFormation", "CI/CD"],
+      skills: ["AWS","Auto Scaling", "Elastic Load Balancer","EC2", "S3", "Lambda", "CloudFront", "CI/CD"],
       projects: [
         { name: "Giftos E-commerce", url: "projects.html#giftos-details" }
       ]
@@ -141,7 +141,8 @@ backToTopBtn.addEventListener('click', () => {
       projects: [
         { name: "Stock Management System", url: "projects.html#SNS-details" },
         { name: "Virtual Tour Guide", url: "projects.html#HA-details" },
-        { name: "Motherly App", url: "projects.html#motherly-details" }
+        { name: "Motherly App", url: "projects.html#motherly-details" },
+        { name: "Automated Leave System", url: "projects.html#automated-details" }
       ]
     }
   };
